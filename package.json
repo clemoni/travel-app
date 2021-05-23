@@ -1,0 +1,48 @@
+{
+  "name": "travel-app",
+  "version": "1.0.0",
+  "description": "Captsone project of the Udacity Front End Web Developer Nanodegree Program",
+  "main": "src/public/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node src/server/app.js",
+    "build": "webpack",
+    "sdev": "nodemon src/server/app.js",
+    "bdev": "webpack serve --open"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/clemoni/travel-app.git"
+  },
+  "keywords": [
+    "udacity",
+    "travel",
+    "app"
+  ],
+  "author": "Clemoni",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/clemoni/travel-app/issues"
+  },
+  "homepage": "https://github.com/clemoni/travel-app#readme",
+  "devDependencies": {
+    "@babel/core": "^7.14.3",
+    "@babel/plugin-transform-runtime": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
+    "babel-loader": "^8.2.2",
+    "colors": "^1.4.0",
+    "dotenv": "^10.0.0",
+    "fp-dom-tool": "^1.2.0",
+    "html-webpack-plugin": "^5.3.1",
+    "nodemon": "^2.0.7",
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "@babel/runtime": "^7.14.0",
+    "axios": "^0.21.1",
+    "cors": "^2.8.5",
+    "express": "^4.17.1"
+  }
+}

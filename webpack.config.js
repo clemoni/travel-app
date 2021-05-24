@@ -23,11 +23,52 @@ module.exports = {
           },
         },
       },
+      {
+        test: /\.s[ac]ss$/i,
+        use: [
+          // Creates `style` nodes from JS strings
+          "style-loader",
+          // Translates CSS into CommonJS
+          "css-loader",
+          // Compiles Sass to CSS
+          "sass-loader",
+        ],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          {
+            loader: "style-loader",
+          },
+          {
+            loader: "css-loader",
+            options: {
+              modules: true,
+            },
+          },
+        ],
+      },
+      {
+        test: /\.(png|jpe?g|gif)$/i,
+        loader: "file-loader",
+        options: {
+          publicPath: "img",
+          outputPath: "img",
+        },
+      },
+      {
+        test: /\.handlebars$/,
+        loader: "handlebars-loader",
+        options: {
+          helperDirs: path.join(__dirname, "src/public/views/layout"),
+        },
+      },
     ],
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: "./src/public/views/index.html",
+      template: "./src/public/views/index.handlebars",
+      title: "Travel App",
     }),
   ],
   output: {

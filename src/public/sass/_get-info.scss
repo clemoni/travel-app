@@ -1,0 +1,42 @@
+.get-info{
+    height: 100vh;
+    width: 100vw;
+    // overflow:hidden;
+    background: linear-gradient($linear-dark, $linear-dark), url(https://source.unsplash.com/6U4wogjLArk/1600x900/) no-repeat center center/cover;
+    color:$base-f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &__city,
+    &_date{
+        margin-bottom: 2rem;
+
+        label{
+            color:$base-f;
+            font-family: $title-font;
+            font-size:1.4rem;
+            font-weight: 400;
+            margin-bottom: .7rem;
+        }
+        input[type=text]{
+            color:darken($base-f, 30%);
+            font-family: 'Oswald', sans-serif;
+        }
+        input[type=date]{
+            color:darken($base-f, 20%);
+            font-family: 'Oswald', sans-serif;
+        }
+
+    }
+
+    &__submit{
+        margin-top:2rem;
+        width:50%;
+        background: $main-color;
+        color:$base-f;
+        float: right;
+    }
+    
+}

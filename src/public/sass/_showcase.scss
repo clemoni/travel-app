@@ -1,0 +1,32 @@
+.showcase{
+    height: 100vh;
+    width: 100vw;
+    overflow:hidden;
+    background: linear-gradient($linear-main, $linear-main), url(https://source.unsplash.com/G7joo6O2C4s/1600x900) no-repeat center center/cover;
+    color:$base-f;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+
+    &__title{
+        font-family: $title-font;
+        font-size: 3rem;
+        font-weight: 200;
+        margin:0 3rem;
+        text-align: center;
+        line-height: 1.4;
+        display: flex;
+        flex-direction: column;
+        text-shadow: 1px 1px $light-contrast;
+    }
+
+    &__btn{
+        margin-top:2rem;
+        width:30%;
+        background: $dark-contrast;
+        color:$base-f;
+        cursor: pointer;
+    }
+}

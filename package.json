@@ -4,7 +4,7 @@
   "description": "Captsone project of the Udacity Front End Web Developer Nanodegree Program",
   "main": "src/public/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage",
     "start": "node src/server/app.js",
     "build": "webpack --stats-error-details",
     "sdev": "nodemon src/server/app.js",
@@ -38,6 +38,7 @@
     "fp-dom-alert": "^1.1.2",
     "fp-dom-tool": "^1.2.0",
     "html-webpack-plugin": "^5.3.1",
+    "jest": "^27.0.1",
     "lodash": "^4.17.21",
     "nodemon": "^2.0.7",
     "sass": "^1.34.0",

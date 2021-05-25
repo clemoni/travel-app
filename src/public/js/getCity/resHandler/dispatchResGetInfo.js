@@ -1,4 +1,4 @@
-import { compose } from "../utilities";
+import { compose } from "../../Util/utilities";
 
 const filterGeoRes = (response) => {
   const { data } = response;
@@ -7,7 +7,9 @@ const filterGeoRes = (response) => {
 
 const dispatchGeoData = (data) => {
   return new Promise((resolve, reject) => {
-    return data.length !== 0 ? resolve(data) : reject("ca ne va pas");
+    return data.length !== 0
+      ? resolve(data)
+      : reject("The city you entered is unknown...");
   });
 };
 

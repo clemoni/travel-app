@@ -3,32 +3,26 @@ import _tool from "fp-dom-tool";
 // sytle
 import "./sass/style.scss";
 
-const axios = require("axios").default;
-
 // UI
 import { addUnsplashIcon } from "./js/UI/addUnplashIcon";
 addUnsplashIcon();
 
-import { handleGetInfo } from "./js/getInfoHandler/getInfoHandler";
+import { getCity } from "./js/getCity/getCity";
 
-import { fireTemplate } from "./js/UI/renderClarify";
-import { dispatchGeoRes } from "./js/resHandler/dispatchResGetInfo";
-import { prepToRenderGeo } from "./js/resHandler/prepToRenderGeo";
+const cityReg = new RegExp("btn form__submit get-info__submit");
+const clarifyReg = new RegExp("btn clarify-city__btn*");
 
-const getCity = async (values) => {
-  console.log("fire:: getCity");
-  const res = await axios.post("http://localhost:8082/getcity", { values });
-  return res;
+const fireForm = (e) => {
+  //   console.log(e.target);
+  //   console.log(e.target.tagName);
+
+  if (cityReg.test(e.target.className)) {
+    getCity(e);
+  }
+  if (clarifyReg.test(e.target.className) || e.target.tagName === "SPAN") {
+    console.log("trigger clarification ");
+  }
 };
 
-const getInfoBtn = _tool._getElementClass("get-info__submit");
-getInfoBtn.addEventListener("click", (e) => {
-  e.preventDefault();
-
-  handleGetInfo()
-    .then((values) => getCity(values))
-    .then((response) => dispatchGeoRes(response))
-    .then((data) => prepToRenderGeo(data))
-    .then((prepData) => fireTemplate(prepData))
-    .catch((error) => console.log(error));
-});
+const form = _tool._getElementClass("get-info__form");
+form.addEventListener("click", fireForm);

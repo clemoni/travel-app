@@ -1,4 +1,4 @@
-import { compose } from "../utilities";
+import { compose } from "../../Util/utilities";
 
 export const convertStringToDate = (stringDate) => {
   return new Date(stringDate);

@@ -1,4 +1,4 @@
-import { compose } from "../utilities";
+import { compose } from "../../Util/utilities";
 import { filterGeoname } from "./filterGeoname";
 import { markTopGeomame } from "./markTopGeoname";
 

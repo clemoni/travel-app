@@ -1,4 +1,4 @@
-import clarifyTemplate from "../../views/layout/clarify.handlebars";
+import clarifyTemplate from "../../../views/layout/clarify.handlebars";
 import _tool from "fp-dom-tool";
 
 const clarifyContainer = _tool._getElementClass("clarify-city");

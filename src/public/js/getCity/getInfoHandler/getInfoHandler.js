@@ -1,6 +1,6 @@
 import { getGetInfoInputsValues } from "./getInputsValues";
 import { getInfoSchema } from "./getInfoSchema";
-import { compose } from "../utilities";
+import { compose } from "../../Util/utilities";
 
 export const getErrors = (inputValues) => {
   const output = { errors: [], values: [] };

@@ -13,6 +13,7 @@ import { handleGetInfo } from "./js/getInfoHandler/getInfoHandler";
 
 // test
 import { getGetInfoInputsValues } from "./js/getInfoHandler/getInputsValues";
+import { dateIsNotPast } from "./js/dateHelper/isNotPast";
 
 const getCity = async (values) => {
   console.log("fire:: getCity");
@@ -23,14 +24,13 @@ const getCity = async (values) => {
 const getInfoBtn = _tool._getElementClass("get-info__submit");
 getInfoBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  const values = getGetInfoInputsValues();
+  //   const values = getGetInfoInputsValues();
 
-  const { travelDate } = values;
-  const travelDateD = new Date(travelDate);
-  console.log(travelDateD > Date.now());
+  //   const { travelDate } = values;
+  //   console.log(dateIsNotPast(travelDate));
 
-  //   handleGetInfo()
-  //     .then((values) => getCity(values))
-  //     .then((response) => console.log(response.data))
-  //     .catch((error) => console.log(error));
+  handleGetInfo()
+    .then((values) => getCity(values))
+    .then((response) => console.log(response.data))
+    .catch((error) => console.log(error));
 });

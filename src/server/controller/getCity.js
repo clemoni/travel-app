@@ -1,4 +1,5 @@
 const axios = require("axios");
+const SafeTravelDate = require("../travelRequest");
 
 const callGeonames = async (city) => {
   const res = await axios({
@@ -15,10 +16,13 @@ const callGeonames = async (city) => {
 };
 
 const getCity = (req, res) => {
-  const [city] = req.body.values;
+  const [travelCity, travelDate] = req.body.values;
 
-  callGeonames(city)
-    .then((response) => res.json(response.data.geonames))
+  callGeonames(travelCity)
+    .then((response) => {
+      SafeTravelDate.setDate = travelDate;
+      res.json(response.data.geonames);
+    })
     .catch((error) => {
       res.json(409, {
         error: `Message Perso:: ${error.message}`,

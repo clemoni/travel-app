@@ -5,6 +5,9 @@ const axios = require("axios");
 
 const getCity = require("./controller/getCity");
 
+const SafeTravelDate = require("./travelRequest");
+const diffFromNow = require("./dateHelper/diffDate");
+
 require("colors");
 
 // require("dotenv").config({
@@ -26,7 +29,57 @@ app.get("/", (req, res) => {
   path.join(__dirname, "../../dist/index.html");
 });
 
+const dummie = {
+  name: "Arras",
+  countryName: "Germany",
+  lat: "51.05601",
+  lng: "12.90432",
+  travelDate: "2021-05-30",
+};
+
 app.post("/getcity", getCity);
+
+// dd2a1b84794d47c3ac2504cfc31239ea
+
+app.post("/getrest", (req, res) => {
+  // const { values: travelCity } = req.body;
+  const travelCity = { ...dummie };
+  const travelDate = SafeTravelDate.travelDate;
+  console.log(travelDate);
+  console.log(diffFromNow(travelDate));
+
+  ({ lat, lng: lon, name, countryName } = travelCity);
+  axios({
+    method: "get",
+    url: "http://api.weatherbit.io/v2.0/current?",
+    params: {
+      key: "dd2a1b84794d47c3ac2504cfc31239ea",
+      lat,
+      lon,
+    },
+  }).then((response) => console.log(response.data));
+
+  // axios({
+  //   method: "get",
+  //   url: "http://api.weatherbit.io/v2.0/forecast/daily?",
+  //   params: {
+  //     key: "dd2a1b84794d47c3ac2504cfc31239ea",
+  //     lat,
+  //     lon,
+  //   },
+  // }).then((response) => console.log(response.data));
+  // axios({
+  //   method: "get",
+  //   url: "https://pixabay.com/api/?",
+  //   params: {
+  //     key: "9122594-ee92bc002862ba16dc883919c",
+  //     q: `${name}+${countryName}`,
+  //     image_type: "photo",
+  //     per_page: "3",
+  //     category: "travel",
+  //   },
+  // }).then((response) => console.log(response.data));
+});
 
 app.listen(PORT, (error) => {
   try {

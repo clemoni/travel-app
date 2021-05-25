@@ -9,18 +9,18 @@ addUnsplashIcon();
 
 import { getCity } from "./js/getCity/getCity";
 
+import { getRest } from "./js/getRest/getRest";
+
 const cityReg = new RegExp("btn form__submit get-info__submit");
 const clarifyReg = new RegExp("btn clarify-city__btn*");
 
 const fireForm = (e) => {
-  //   console.log(e.target);
-  //   console.log(e.target.tagName);
-
   if (cityReg.test(e.target.className)) {
     getCity(e);
   }
+
   if (clarifyReg.test(e.target.className) || e.target.tagName === "SPAN") {
-    console.log("trigger clarification ");
+    getRest(e);
   }
 };
 

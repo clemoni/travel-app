@@ -15,6 +15,8 @@ const isDateValidator = validatorTest(isDate);
 
 const isNotPastValidator = validatorTest(dateIsNotPast);
 
+// const isGeoNotEmptyValidator = validatorTest(isNotGeoEmpty);
+
 const ifNotEmptyTestRest =
   (isNotEmpty, validatorTest) => (msg) => (content) => {
     return isNotEmpty(content) ? validatorTest(msg)(content) : null;

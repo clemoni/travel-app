@@ -36,7 +36,31 @@
         width:50%;
         background: $main-color;
         color:$base-f;
-        float: right;
+        // float: right;
     }
+}
+
+.clarify-city{
+    padding:2rem 0;
+    display: flex;
+    flex-direction: column;
     
+
+    &__btn{
+        margin: .5rem 0;
+        color:darken($base-f, 40);
+        font-family: $regular-font;
+        font-size:1.1rem;
+        font-weight: 200;
+        background-color: $light-contrast;
+        width:90%;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+
+        &--top{
+            color:lighten($base-f, 80);
+            background-color: darken($dark-contrast, 5);
+        }
+    }
 }

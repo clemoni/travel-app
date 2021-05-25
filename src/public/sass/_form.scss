@@ -18,7 +18,9 @@
         border:none;
         border-radius: .2rem;
     }
-    // &__submit{
-
-    // }
+    .clarify-city{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
 }

@@ -14,6 +14,11 @@ import { handleGetInfo } from "./js/getInfoHandler/getInfoHandler";
 // test
 import { getGetInfoInputsValues } from "./js/getInfoHandler/getInputsValues";
 import { dateIsNotPast } from "./js/dateHelper/isNotPast";
+import { fireTemplate } from "./js/UI/renderClarify";
+import {
+  filterGeoRes,
+  dispatchGeoRes,
+} from "./js/resHandler/dispatchResGetInfo";
 
 const getCity = async (values) => {
   console.log("fire:: getCity");
@@ -28,9 +33,10 @@ getInfoBtn.addEventListener("click", (e) => {
 
   //   const { travelDate } = values;
   //   console.log(dateIsNotPast(travelDate));
-
+  //   fireTemplate();
   handleGetInfo()
     .then((values) => getCity(values))
-    .then((response) => console.log(response.data))
+    .then((response) => dispatchGeoRes(response))
+    .then((res) => console.log(res))
     .catch((error) => console.log(error));
 });

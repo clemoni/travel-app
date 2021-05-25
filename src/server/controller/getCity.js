@@ -7,7 +7,7 @@ const callGeonames = async (city) => {
     params: {
       name: city,
       name_equals: city,
-      maxRows: 5,
+      maxRows: 3,
       username: "clemoni",
     },
   });

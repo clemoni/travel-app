@@ -11,14 +11,9 @@ addUnsplashIcon();
 
 import { handleGetInfo } from "./js/getInfoHandler/getInfoHandler";
 
-// test
-import { getGetInfoInputsValues } from "./js/getInfoHandler/getInputsValues";
-import { dateIsNotPast } from "./js/dateHelper/isNotPast";
 import { fireTemplate } from "./js/UI/renderClarify";
-import {
-  filterGeoRes,
-  dispatchGeoRes,
-} from "./js/resHandler/dispatchResGetInfo";
+import { dispatchGeoRes } from "./js/resHandler/dispatchResGetInfo";
+import { prepToRenderGeo } from "./js/resHandler/prepToRenderGeo";
 
 const getCity = async (values) => {
   console.log("fire:: getCity");
@@ -29,14 +24,11 @@ const getCity = async (values) => {
 const getInfoBtn = _tool._getElementClass("get-info__submit");
 getInfoBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  //   const values = getGetInfoInputsValues();
 
-  //   const { travelDate } = values;
-  //   console.log(dateIsNotPast(travelDate));
-  //   fireTemplate();
   handleGetInfo()
     .then((values) => getCity(values))
     .then((response) => dispatchGeoRes(response))
-    .then((res) => console.log(res))
+    .then((data) => prepToRenderGeo(data))
+    .then((prepData) => fireTemplate(prepData))
     .catch((error) => console.log(error));
 });

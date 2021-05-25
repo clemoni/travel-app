@@ -41,22 +41,39 @@
 }
 
 .clarify-city{
-    padding:2rem 0;
-    display: flex;
-    flex-direction: column;
+    
+    &__container{
+        padding:2rem 0;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    &__title h3{
+        color:$base-f;
+        font-family: $title-font;
+        font-size:1.4rem;
+        font-weight: 400;
+        margin-bottom: .7rem;
+    }
     
 
     &__btn{
         margin: .5rem 0;
         color:darken($base-f, 40);
         font-family: $regular-font;
-        font-size:1.1rem;
-        font-weight: 200;
+        font-size:.9rem;
+        font-weight: 300;
         background-color: $light-contrast;
-        width:90%;
+        width:80%;
         display:flex;
         flex-direction: column;
-        align-items: center;
+        align-items:flex-start;
+        
+        span:last-child{
+            padding-top: .4rem;
+        }
+
 
         &--top{
             color:lighten($base-f, 80);

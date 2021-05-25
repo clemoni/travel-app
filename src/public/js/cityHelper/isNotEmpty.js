@@ -1,5 +1,5 @@
-import _ from "lodash";
+import isEmpty from "lodash/isEmpty";
 
 export const isNotEmpty = (content) => {
-  return !_.isEmpty(content);
+  return !isEmpty(content);
 };

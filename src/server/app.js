@@ -3,6 +3,8 @@ const path = require("path");
 const cors = require("cors");
 const axios = require("axios");
 
+const getCity = require("./controller/getCity");
+
 require("colors");
 
 // require("dotenv").config({
@@ -23,6 +25,8 @@ app.use(cors());
 app.get("/", (req, res) => {
   path.join(__dirname, "../../dist/index.html");
 });
+
+app.post("/getcity", getCity);
 
 app.listen(PORT, (error) => {
   try {

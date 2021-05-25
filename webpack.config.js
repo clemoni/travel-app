@@ -77,4 +77,7 @@ module.exports = {
     publicPath: "/",
     clean: true,
   },
+  optimization: {
+    usedExports: true,
+  },
 };

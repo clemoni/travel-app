@@ -2,22 +2,24 @@
   <form class="form get-info__form">
     <div class="_message"></div>
     <div class="form__group get-info__city">
-      <label for="city" class="form__label">Where are you going ?</label>
+      <label for="travel-city" class="form__label">Where are you going ?</label>
       <input
         type="text"
         class="form__input"
-        id="city"
-        name="city"
+        id="travel-city"
+        name="travel-city"
         placeholder="Enter city here"
+        value="London"
+        {{! need to be removed later }}
       />
     </div>
     <div class="form__group get-info_date">
-      <label for="date-trip" class="form__label">When are you leaving ?</label>
+      <label for="travel-date" class="form__label">When are you leaving ?</label>
       <input
         type="date"
         class="form__input"
-        id="date-trip"
-        name="date-trip"
+        id="travel-date"
+        name="travel-date"
         placeholder="Chose a date here"
       />
     </div>

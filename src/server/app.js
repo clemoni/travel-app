@@ -3,10 +3,16 @@ const path = require("path");
 const cors = require("cors");
 const axios = require("axios");
 
-const getCity = require("./controller/getCity");
+const {
+  storeTravelReq,
+  getCity,
+  isEmptyTest,
+  isOneCity,
+  sendCitiesClient,
+} = require("./controller/getCity");
 
 const SafeTravelDate = require("./travelRequest");
-const diffFromNow = require("./dateHelper/diffDate");
+const diffFromNow = require("./helpers/diffDate");
 
 require("colors");
 
@@ -37,27 +43,36 @@ const dummie = {
   travelDate: "2021-05-30",
 };
 
-app.post("/getcity", getCity);
+// app.use("/getcity", checkResponse);
+
+app.post("/getcity", [
+  storeTravelReq,
+  getCity,
+  isEmptyTest,
+  isOneCity,
+  sendCitiesClient,
+]);
 
 // dd2a1b84794d47c3ac2504cfc31239ea
 
 app.post("/getrest", (req, res) => {
+  console.log("hello");
   // const { values: travelCity } = req.body;
-  const travelCity = { ...dummie };
-  const travelDate = SafeTravelDate.travelDate;
-  console.log(travelDate);
-  console.log(diffFromNow(travelDate));
+  // const travelCity = { ...dummie };
+  // const travelDate = SafeTravelDate.travelDate;
+  // console.log(travelDate);
+  // console.log(diffFromNow(travelDate));
 
-  ({ lat, lng: lon, name, countryName } = travelCity);
-  axios({
-    method: "get",
-    url: "http://api.weatherbit.io/v2.0/current?",
-    params: {
-      key: "dd2a1b84794d47c3ac2504cfc31239ea",
-      lat,
-      lon,
-    },
-  }).then((response) => console.log(response.data));
+  // ({ lat, lng: lon, name, countryName } = travelCity);
+  // axios({
+  //   method: "get",
+  //   url: "http://api.weatherbit.io/v2.0/current?",
+  //   params: {
+  //     key: "dd2a1b84794d47c3ac2504cfc31239ea",
+  //     lat,
+  //     lon,
+  //   },
+  // }).then((response) => console.log(response.data));
 
   // axios({
   //   method: "get",
@@ -79,6 +94,11 @@ app.post("/getrest", (req, res) => {
   //     category: "travel",
   //   },
   // }).then((response) => console.log(response.data));
+});
+
+app.use((err, req, res, next) => {
+  ({ message } = err);
+  res.status(409).json({ message });
 });
 
 app.listen(PORT, (error) => {

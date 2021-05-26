@@ -17,5 +17,5 @@ export const getCity = (e) => {
     .then((response) => dispatchGeoRes(response))
     .then((data) => prepToRenderGeo(data))
     .then((prepData) => fireTemplate(prepData))
-    .catch((error) => console.log(error));
+    .catch((error) => console.log(error.response.data.message));
 };

@@ -3,16 +3,18 @@ const path = require("path");
 const cors = require("cors");
 const axios = require("axios");
 
-const {
-  storeTravelReq,
-  getCity,
-  isEmptyTest,
-  isOneCity,
-  sendCitiesClient,
-} = require("./controller/getCity");
+const travel = require("./routes/travel");
 
-const SafeTravelDate = require("./travelRequest");
-const diffFromNow = require("./helpers/diffDate");
+// const {
+//   storeTravelReq,
+//   getCity,
+//   isEmptyTest,
+//   isOneCity,
+//   sendCitiesClient,
+// } = require("./controller/getCity");
+
+// const SafeTravelDate = require("./travelRequest");
+// const diffFromNow = require("./helpers/diffDate");
 
 require("colors");
 
@@ -45,56 +47,56 @@ const dummie = {
 
 // app.use("/getcity", checkResponse);
 
-app.post("/getcity", [
-  storeTravelReq,
-  getCity,
-  isEmptyTest,
-  isOneCity,
-  sendCitiesClient,
-]);
+// app.post("/getcity", [
+//   storeTravelReq,
+//   getCity,
+//   isEmptyTest,
+//   isOneCity,
+//   sendCitiesClient,
+// ]);
 
-// dd2a1b84794d47c3ac2504cfc31239ea
+app.use("/travel", travel);
 
-app.post("/getrest", (req, res) => {
-  console.log("hello");
-  // const { values: travelCity } = req.body;
-  // const travelCity = { ...dummie };
-  // const travelDate = SafeTravelDate.travelDate;
-  // console.log(travelDate);
-  // console.log(diffFromNow(travelDate));
+// app.post("/getrest", (req, res) => {
+//   console.log("hello");
+//   // const { values: travelCity } = req.body;
+//   // const travelCity = { ...dummie };
+//   // const travelDate = SafeTravelDate.travelDate;
+//   // console.log(travelDate);
+//   // console.log(diffFromNow(travelDate));
 
-  // ({ lat, lng: lon, name, countryName } = travelCity);
-  // axios({
-  //   method: "get",
-  //   url: "http://api.weatherbit.io/v2.0/current?",
-  //   params: {
-  //     key: "dd2a1b84794d47c3ac2504cfc31239ea",
-  //     lat,
-  //     lon,
-  //   },
-  // }).then((response) => console.log(response.data));
+//   // ({ lat, lng: lon, name, countryName } = travelCity);
+//   // axios({
+//   //   method: "get",
+//   //   url: "http://api.weatherbit.io/v2.0/current?",
+//   //   params: {
+//   //     key: "dd2a1b84794d47c3ac2504cfc31239ea",
+//   //     lat,
+//   //     lon,
+//   //   },
+//   // }).then((response) => console.log(response.data));
 
-  // axios({
-  //   method: "get",
-  //   url: "http://api.weatherbit.io/v2.0/forecast/daily?",
-  //   params: {
-  //     key: "dd2a1b84794d47c3ac2504cfc31239ea",
-  //     lat,
-  //     lon,
-  //   },
-  // }).then((response) => console.log(response.data));
-  // axios({
-  //   method: "get",
-  //   url: "https://pixabay.com/api/?",
-  //   params: {
-  //     key: "9122594-ee92bc002862ba16dc883919c",
-  //     q: `${name}+${countryName}`,
-  //     image_type: "photo",
-  //     per_page: "3",
-  //     category: "travel",
-  //   },
-  // }).then((response) => console.log(response.data));
-});
+//   // axios({
+//   //   method: "get",
+//   //   url: "http://api.weatherbit.io/v2.0/forecast/daily?",
+//   //   params: {
+//   //     key: "dd2a1b84794d47c3ac2504cfc31239ea",
+//   //     lat,
+//   //     lon,
+//   //   },
+//   // }).then((response) => console.log(response.data));
+//   // axios({
+//   //   method: "get",
+//   //   url: "https://pixabay.com/api/?",
+//   //   params: {
+//   //     key: "9122594-ee92bc002862ba16dc883919c",
+//   //     q: `${name}+${countryName}`,
+//   //     image_type: "photo",
+//   //     per_page: "3",
+//   //     category: "travel",
+//   //   },
+//   // }).then((response) => console.log(response.data));
+// });
 
 app.use((err, req, res, next) => {
   ({ message } = err);

@@ -1,6 +1,6 @@
 import { compose } from "../../Util/utilities";
-import { filterGeoname } from "./filterGeoname";
 import { markTopGeomame } from "./markTopGeoname";
+import { filterGeoRes } from "./filterGeoRes";
 
 const composeCities = (arrayData) => {
   const cities = [...arrayData];
@@ -11,5 +11,5 @@ const composeCities = (arrayData) => {
 export const prepToRenderGeo = compose(
   composeCities,
   markTopGeomame,
-  filterGeoname
+  filterGeoRes
 );

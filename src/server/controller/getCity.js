@@ -1,5 +1,6 @@
 const axios = require("axios");
-const SafeTravelDate = require("../travelRequest");
+const { filterGeoname } = require("../helpers/filterGeoname");
+const { prepGetRest } = require("./getRest");
 
 const callGeonames = async (city) => {
   const res = await axios({
@@ -30,43 +31,42 @@ const getCity = async (req, res, next) => {
   } catch (err) {
     next(err);
   }
-
-  // next(response);
-  // .then((response) => {
-  //   SafeTravelDate.setDate = travelDate;
-  //   res.json(response.data.geonames);
-  // })
-  // .catch((error) => {
-  //   res.json(409, {
-  //     error: `Message Perso:: ${error.message}`,
-  //   });
-  // });
 };
 
 const isEmptyTest = (req, res, next) => {
-  ({ totalResultsCount } = res.locals.data);
+  ({ totalResultsCount, geonames } = res.locals.data);
   if (totalResultsCount === 0) {
     throw new Error("The city you entered couldn't be found");
+  } else {
+    res.locals.data = geonames;
+    next();
+  }
+};
+
+const filterGeoRes = (req, res, next) => {
+  ({ data } = res.locals);
+  res.locals.data = filterGeoname(data);
+  next();
+};
+
+const isOneCity = (req, res, next) => {
+  ({ data } = res.locals);
+  console.log("is one?");
+  if (data.length === 1) {
+    console.log("just one");
+    prepGetRest();
   } else {
     next();
   }
 };
 
-const isOneCity = (req, res, next) => {
-  ({ geonames } = res.locals.data);
-  if (geonames.length === 1) {
-    console.log("just one");
-    next("route");
-  } else {
-    next();
-  }
-};
 const sendCitiesClient = (req, res) => {
-  ({ geonames } = res.locals.data);
-  res.json(geonames);
+  ({ data } = res.locals);
+  res.json(data);
 };
 exports.storeTravelReq = storeTravelReq;
 exports.getCity = getCity;
 exports.isEmptyTest = isEmptyTest;
+exports.filterGeoRes = filterGeoRes;
 exports.isOneCity = isOneCity;
 exports.sendCitiesClient = sendCitiesClient;

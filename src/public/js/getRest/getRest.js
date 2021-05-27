@@ -20,13 +20,14 @@ const prepToRequest = (city) => {
 
 const fetchRest = async (values) => {
   console.log("fire:: getRest");
-  const res = await axios.post("http://localhost:8082/getrest", { values });
+  const res = await axios.get("http://localhost:8082/travel/getrest/", {
+    params: values,
+  });
   return res;
 };
 
 export const getRest = (e) => {
   //   const prepedRequest = prepToRequest(e.target);
-
   e.preventDefault();
   fetchRest(dummie);
 };

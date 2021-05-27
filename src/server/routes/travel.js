@@ -1,24 +1,28 @@
 const express = require("express");
 const router = express.Router();
 
-const {
-  storeTravelReq,
-  getCity,
-  isEmptyTest,
-  filterGeoRes,
-  isOneCity,
-  sendCitiesClient,
-} = require("../controller/getCity");
+// Middleware POST /getcity
+const { storeCityRequest } = require("../middleware/storeCityRequest");
+const { fetchGeonames } = require("../middleware/fetchGeonames");
+const { isEmptyGeonames } = require("../middleware/isEmptyGeonames");
+const { filterGeoRes } = require("../middleware/filterGeonamesRes");
+const { isOneCity } = require("../middleware/isOneCity");
+const { sendCitiesClient } = require("../middleware/sendCitiesClient");
+
+// Middleware GET /getrest
+const { storeRestRequest } = require("../middleware/storeRestRequest");
+const { fetchRest } = require("../middleware/fetchRestApi");
+const { filterRestRes } = require("../middleware/filterRestRes");
 
 router.post("/getcity", [
-  storeTravelReq,
-  getCity,
-  isEmptyTest,
+  storeCityRequest,
+  fetchGeonames,
+  isEmptyGeonames,
   filterGeoRes,
   isOneCity,
   sendCitiesClient,
 ]);
 
-router.post("/getRest", (req, res, next) => {});
+router.get("/getrest/", [storeRestRequest, fetchRest, filterRestRes]);
 
 module.exports = router;

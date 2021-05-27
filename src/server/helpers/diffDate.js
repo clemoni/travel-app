@@ -1,4 +1,9 @@
 const compose = require("../utilities");
+const { SafeTravelDate } = require("../travelRequest");
+
+const getDate = () => {
+  return SafeTravelDate.getDate;
+};
 
 const convertStringToDate = (stringDate) => {
   return new Date(stringDate);
@@ -19,7 +24,8 @@ const convertToDays = (diffSeconde) => {
 const diffFromNow = compose(
   convertToDays,
   diffSecondeFromNow,
-  convertStringToDate
+  convertStringToDate,
+  getDate
 );
 
-module.exports = diffFromNow;
+exports.diffFromNow = diffFromNow;

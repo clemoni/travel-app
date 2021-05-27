@@ -13,4 +13,13 @@ Object.defineProperty(SafeTravelDate, "reset", {
     this.travelDate = null;
   },
 });
-module.exports = SafeTravelDate;
+
+const SafeTravelRequest = {
+  lat: null,
+  lng: null,
+  name: null,
+  countryName: null,
+};
+
+exports.SafeTravelDate = SafeTravelDate;
+exports.SafeTravelRequest = SafeTravelRequest;

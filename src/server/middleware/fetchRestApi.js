@@ -44,7 +44,9 @@ const fetchRest = async (req, res, next) => {
 
   try {
     const resRest = await callRestApi(data, weatherUrl);
-    res.locals.weather = resRest[0].data;
+    res.locals.weather = resRest[0].data.data;
+    res.locals.timezone = resRest[0].data.timezone;
+
     res.locals.img = resRest[1].data.hits;
     // console.log(res.locals.img);
     next();

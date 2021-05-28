@@ -26,3 +26,34 @@ const fireForm = (e) => {
 
 const form = _tool._getElementClass("get-info__form");
 form.addEventListener("click", fireForm);
+
+// import { compose } from "./js/Util/utilities";
+
+// const timestampToMill = (timeStamp) => {
+//   return timeStamp * 1000;
+// };
+
+// const toDateObject = (converToMill) => {
+//   return new Date(converToMill);
+// };
+
+// const timestamptoObject = compose(toDateObject, timestampToMill);
+
+// const convertToString = (timeFormat) => (timeStamp) => {
+//   return timestamptoObject(timeStamp).toLocaleString("en-GB", {
+//     timeZone: timeFormat,
+//   });
+// };
+
+// const getTimeFromTimestamp = (timeFormat) => (timeStamp) => {
+//   const [, time] = convertToString(timeFormat)(timeStamp).split(",");
+//   const [h, m, s] = time.split(":");
+//   return `${h}:${m}`;
+// };
+// const rise = 1622173954;
+
+// const t = "Europe/Paris";
+
+// // console.log(timestamptoString(rise));
+// // console.log(convertToString(t)(rise));
+// console.log(getTimeFromTimestamp(t)(rise));

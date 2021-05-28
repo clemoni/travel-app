@@ -8,6 +8,9 @@ const fetchCityData = async (values) => {
   const res = await axios.post("http://localhost:8082/travel/getcity", {
     values,
   });
+  // const res = await axios.post("/travel/getcity", {
+  //   values,
+  // });
   return res;
 };
 

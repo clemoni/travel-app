@@ -1,9 +1,9 @@
+const { SafeTravelDate } = require("../travelRequest");
 const sendRestClient = (req, res) => {
-  ({ img: explore } = res.locals);
+  ({ img: explore, weather, travelCity } = res.locals);
+  const travelDate = SafeTravelDate.getDate;
   console.log("send data");
-  // console.log(img);
-  const weather = {};
-  res.json({ explore, weather });
+  res.json({ explore, weather, travelCity, travelDate });
   res.end();
 };
 

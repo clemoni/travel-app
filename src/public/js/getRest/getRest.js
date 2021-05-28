@@ -1,5 +1,6 @@
 import _tool from "fp-dom-tool";
 import axios from "axios";
+import { fireEploreTemplate } from "./render/renderExplore";
 
 const btn = _tool._getElementID("test");
 
@@ -27,9 +28,16 @@ const fetchRest = async (values) => {
 };
 
 export const getRest = (e) => {
-  //   const prepedRequest = prepToRequest(e.target);
+  const prepedRequest = prepToRequest(e.target);
   e.preventDefault();
-  fetchRest(dummie);
+  fetchRest(prepedRequest)
+    .then((response) => response.data)
+    .then((data) => {
+      const { explore, weather } = data;
+
+      fireEploreTemplate(explore);
+    })
+    .catch((error) => console.log(error));
 };
 
 btn.addEventListener("click", getRest);

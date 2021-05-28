@@ -1,10 +1,26 @@
 import clarifyTemplate from "../../../views/layout/clarify.handlebars";
-import _tool from "fp-dom-tool";
+import { prepToRenderGeo } from "../resHandler/prepToRenderGeo";
+import { compose } from "../../Util/utilities";
+import {
+  initContainer,
+  initChild,
+  initTemplate,
+  composedChild,
+  buildTemplate,
+} from "../../Util/renderTemplate";
 
-const clarifyContainer = _tool._getElementClass("clarify-city");
-const div = _tool._createElement("div")(["class", "clarify-city__container"]);
+const clarifyContainer = initContainer("clarify-city");
+const clarifyChild = initChild("clarify-city");
 
-export const fireTemplate = (cities) => {
-  div.innerHTML = clarifyTemplate(cities);
-  _tool._appendElement(clarifyContainer)(div);
-};
+const initClarifyTemplate = initTemplate(clarifyTemplate);
+
+const composeClarifyChild = composedChild(clarifyChild);
+
+const buildClarifyTemplate = buildTemplate(clarifyContainer);
+
+export const fireClarifyTemplate = compose(
+  buildClarifyTemplate,
+  composeClarifyChild,
+  initClarifyTemplate,
+  prepToRenderGeo
+);

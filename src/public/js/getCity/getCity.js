@@ -1,6 +1,5 @@
 import { handleGetInfo } from "./getInfoHandler/getInfoHandler";
-import { prepToRenderGeo } from "./resHandler/prepToRenderGeo";
-import { fireTemplate } from "./render/renderClarify";
+import { fireClarifyTemplate } from "./render/renderClarify";
 
 const axios = require("axios").default;
 
@@ -16,7 +15,7 @@ export const getCity = (e) => {
   e.preventDefault();
   handleGetInfo()
     .then((values) => fetchCityData(values))
-    .then((response) => prepToRenderGeo(response))
-    .then((prepData) => fireTemplate(prepData))
+    // .then((response) => prepToRenderGeo(response))
+    .then((values) => fireClarifyTemplate(values))
     .catch((error) => console.log(error.response.data.message));
 };

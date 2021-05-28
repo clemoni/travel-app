@@ -1,29 +1,20 @@
-<section class="explore">
-  <div class="explore__title">
-    <h3>GET A TASTE</h3>
-  </div>
-  <div class="explore__img-container">
-    <img
-      src="https://source.unsplash.com/1600x900/?moscow,city"
-      alt="explore city"
-      class="explore__img img-1"
-    />
-    <img
-      src="https://source.unsplash.com/1600x900/?paris,city"
-      alt="explore city"
-      class="explore__img img-2"
-    />
+  
+      {{#if explore}}
+      <div class="explore__title">
+        <h3>GET A TASTE</h3>
+      </div>
+      <div class="explore__img-container">
+      {{#each imgs}}
+        {{> exploreImg}}
+      {{/each}}
+      </div>
+      {{else}}
+        <p>No Picture found for the chosen destination</p>
+      {{/if}}
+    
 
-    <img
-      src="https://source.unsplash.com/1600x900/?berlin,city"
-      alt="explore city"
-      class="explore__img img-3"
-    />
+  
 
-    <img
-      src="https://source.unsplash.com/1600x900/?barcelona,city"
-      alt="explore city"
-      class="explore__img img-4"
-    />
-  </div>
-</section>
+
+
+

@@ -13,6 +13,7 @@ const { sendCitiesClient } = require("../middleware/sendCitiesClient");
 const { storeRestRequest } = require("../middleware/storeRestRequest");
 const { fetchRest } = require("../middleware/fetchRestApi");
 const { filterRestRes } = require("../middleware/filterRestRes");
+const { sendRestClient } = require("../middleware/sendRestClient");
 
 router.post("/getcity", [
   storeCityRequest,
@@ -23,6 +24,11 @@ router.post("/getcity", [
   sendCitiesClient,
 ]);
 
-router.get("/getrest/", [storeRestRequest, fetchRest, filterRestRes]);
+router.get("/getrest/", [
+  storeRestRequest,
+  fetchRest,
+  filterRestRes,
+  sendRestClient,
+]);
 
 module.exports = router;

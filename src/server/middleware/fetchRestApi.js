@@ -44,12 +44,13 @@ const fetchRest = async (req, res, next) => {
 
   try {
     const resRest = await callRestApi(data, weatherUrl);
-    console.log("printResult");
     res.locals.weather = resRest[0].data;
-    res.locals.img = resRest[1].data;
+    res.locals.img = resRest[1].data.hits;
+    // console.log(res.locals.img);
     next();
   } catch (err) {
     console.log(err);
+    next(err);
   }
 };
 exports.fetchRest = fetchRest;

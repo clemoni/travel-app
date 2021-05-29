@@ -31,7 +31,7 @@ const filterWeater = (timeFormat) => (arrayWeather) => {
   const [weatherFirstDay, ...weatherRest] = arrayWeather;
   const filteredFirstDay = filterWeatherTop(timeFormat)(weatherFirstDay);
   const filteredRestDay = filterWeatherRest(weatherRest);
-  return [filteredFirstDay, ...filteredRestDay];
+  return { main: filteredFirstDay, forecast: filteredRestDay };
 };
 
 exports.filterWeater = filterWeater;

@@ -1,0 +1,21 @@
+{{! control issue }}
+{{#if weather.forecast}}
+  <section class="info-forecast">
+    <table class="forecast">
+      {{#each weather.forecast}}
+        <tr class="forecast__content">
+          <td class="forecast__day">{{getDay datetime}}</td>
+          <td class="forecast__date">{{dateToLocal datetime}}</td>
+          <td class="forecast__icon">
+            <img
+              src="https://www.weatherbit.io/static/img/icons/{{icon}}.png"
+              alt="weather icon"
+            />
+          </td>
+          <td class="forecast__desc">{{description}}</td>
+          <td class="forecast__temp">{{temp}}°</td>
+        </tr>
+      {{/each}}
+    </table>
+  </section>
+{{/if}}

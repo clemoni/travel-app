@@ -13,7 +13,7 @@
 .info-main{
     grid-column: 1/2;
     grid-row: 1/2;
-    background: linear-gradient($linear-full-dark-color, $linear-full-dark-color), url(https://source.unsplash.com/w8hWTFpGtpY/1600x900/) no-repeat center/cover;
+    background: linear-gradient($linear-full-dark-color, $linear-full-dark-color);
     color:#fff;
     text-shadow: 1px 1px $base-0;
     display:flex;

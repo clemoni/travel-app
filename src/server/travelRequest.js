@@ -14,12 +14,21 @@ Object.defineProperty(SafeTravelDate, "reset", {
   },
 });
 
-const SafeTravelRequest = {
-  lat: null,
-  lng: null,
-  name: null,
-  countryName: null,
+const SafeTravelCity = {
+  set setCity(city) {
+    this.travelCity = city;
+  },
+  get getCity() {
+    return this.travelCity;
+  },
+  travelCity: null,
 };
 
+Object.defineProperty(SafeTravelCity, "reset", {
+  get: function () {
+    this.travelCity = null;
+  },
+});
+
 exports.SafeTravelDate = SafeTravelDate;
-exports.SafeTravelRequest = SafeTravelRequest;
+exports.SafeTravelCity = SafeTravelCity;

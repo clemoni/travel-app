@@ -1,6 +1,7 @@
 import _tool from "fp-dom-tool";
 import axios from "axios";
-import { fireEploreTemplate } from "./render/renderExplore";
+import { fireInfoExploreTemplate } from "./render/renderRest";
+import { getWeatherMainIcon } from "../UI/weatherMainlib";
 
 const btn = _tool._getElementID("test");
 
@@ -30,11 +31,16 @@ export const getRest = (e) => {
     .then((response) => response.data)
     .then((data) => {
       console.log(data);
-      // const { explore, weather } = data;
-
-      // fireEploreTemplate(explore);
+      const mainIcon = data.weather.main.icon;
+      fireInfoExploreTemplate(data);
+      const icon = getWeatherMainIcon(mainIcon);
+      const style = `linear-gradient(rgba(113, 107, 102, 0.2), rgba(113, 107, 102, 0.2)), url(https://source.unsplash.com/${icon}/1600x900) no-repeat center center/cover`;
+      _tool._getElementClass("info-main").style.background = style;
     })
     .catch((error) => console.log(error));
 };
 
-btn.addEventListener("click", getRest);
+btn.addEventListener("click", (e) => {
+  e.preventDefault();
+  fireInfoExploreTemplate(test);
+});

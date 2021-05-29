@@ -60,7 +60,8 @@ module.exports = {
         test: /\.handlebars$/,
         loader: "handlebars-loader",
         options: {
-          helperDirs: path.join(__dirname, "src/public/views/layout"),
+          partialDirs: path.join(__dirname, "src/public/views/layout"),
+          helperDirs: path.join(__dirname, "./src/public/views/helpers"),
         },
       },
     ],

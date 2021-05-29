@@ -1,0 +1,20 @@
+<h3>Your trip to {{travelCity}} on the {{travelDate}}</h3>
+
+  <section class="info">
+      {{> weather}}
+    </section>
+   
+    <section class="explore">
+      {{#if explore}}
+      <div class="explore__title">
+        <h3>GET A TASTE</h3>
+      </div>
+      <div class="explore__img-container">
+      {{#each explore}}
+        {{> exploreImg}}
+      {{/each}}
+      </div>
+      {{else}}
+        <p>No Picture found for the chosen destination</p>
+      {{/if}}
+    </section>

@@ -18,7 +18,6 @@ export const getCity = (e) => {
   e.preventDefault();
   handleGetInfo()
     .then((values) => fetchCityData(values))
-    // .then((response) => prepToRenderGeo(response))
     .then((values) => fireClarifyTemplate(values))
     .catch((error) => console.log(error.response.data.message));
 };

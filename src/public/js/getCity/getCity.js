@@ -1,5 +1,6 @@
 import { handleGetInfo } from "./getInfoHandler/getInfoHandler";
 import { fireClarifyTemplate } from "./render/renderClarify";
+import { renderCompRest } from "../getRest/render/renderCompRest";
 
 const axios = require("axios").default;
 
@@ -18,6 +19,11 @@ export const getCity = (e) => {
   e.preventDefault();
   handleGetInfo()
     .then((values) => fetchCityData(values))
+    .then((values) => {
+      "explore" in values.data
+        ? renderCompRest(values.data)
+        : fireClarifyTemplate(values);
+    })
     .then((values) => fireClarifyTemplate(values))
     .catch((error) => console.log(error));
 };

@@ -24,14 +24,3 @@ export const fireInfoExploreTemplate = compose(
   composeInfoExploreChild,
   initInfoExploreTemplate
 );
-
-// // const infoExploreContainer = initContainer("info-explore");
-// // const infoExploreChild = initChild("info-explore");
-
-// const div = _tool._createElement("div")();
-// const container = _tool._getElementClass("info-explore");
-
-// export const fireInfoExploreTemplate = (data) => {
-//   div.innerHTML = exploreInfoTemplate(data);
-//   _tool._appendElement(container)(div);
-// };

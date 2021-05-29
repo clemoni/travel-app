@@ -52,6 +52,16 @@
         grid-gap: 0.4rem;
         padding: 0.4rem;
 
+        &--no-show {
+            grid-column: none;
+            text-align: center;
+            width: 100vw;
+            height: 25vh;
+            margin: auto;
+            font-size: 2rem;
+            color: $base-f
+        }
+
     }
 
     &__img {

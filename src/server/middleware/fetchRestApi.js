@@ -1,7 +1,8 @@
 const axios = require("axios");
 const { pickWeatherUrl } = require("../helpers/pickWeahterUrl");
 
-const callWeather = (lat, lon, url) => {
+const callWeather = (data, url) => {
+  const { lat, lng: lon } = data;
   return axios({
     method: "get",
     url,
@@ -13,7 +14,8 @@ const callWeather = (lat, lon, url) => {
   });
 };
 
-const callPixa = (name, countryName) => {
+const callPixa = (data) => {
+  const { name, countryName } = data;
   return axios({
     method: "get",
     url: "https://pixabay.com/api/?",
@@ -29,10 +31,9 @@ const callPixa = (name, countryName) => {
 };
 
 const callRestApi = async (data, weatherUrl) => {
-  ({ name, countryName, lat, lng: lon } = data);
   const res = await Promise.all([
-    callWeather(lat, lon, weatherUrl),
-    callPixa(name, countryName),
+    callWeather(data, weatherUrl),
+    callPixa(data),
   ]);
   return res;
 };

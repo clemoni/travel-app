@@ -1,83 +1,126 @@
-.get-info{
-    height: 100vh;
-    width: 100vw;
-    // overflow:hidden;
+.get-info {
+    grid-area: getinfo;
+
     background: linear-gradient($linear-dark, $linear-dark), url(https://source.unsplash.com/6U4wogjLArk/1600x900/) no-repeat center center/cover;
-    color:$base-f;
+    color: $base-f;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
+    position: relative;
+
+
+
     &__city,
-    &_date{
+    &__date {
         margin-bottom: 2rem;
 
-        label{
-            color:$base-f;
+        label {
+            color: $base-f;
             font-family: $title-font;
-            font-size:1.4rem;
+            font-size: 1.4rem;
             font-weight: 400;
             margin-bottom: .7rem;
         }
-        input[type=text]{
-            color:darken($base-f, 30%);
+
+        input[type=text] {
+            color: darken($base-f, 30%);
             font-family: 'Oswald', sans-serif;
         }
-        input[type=date]{
-            color:darken($base-f, 20%);
+
+        input[type=date] {
+            color: darken($base-f, 20%);
             font-family: 'Oswald', sans-serif;
         }
 
     }
 
-    &__submit{
-        margin-top:2rem;
-        width:50%;
+    &__submit {
+        margin-top: 2rem;
+        width: 50%;
         background: $main-color;
-        color:$base-f;
-        // float: right;
-    }
-}
-
-.clarify-city{
-    
-    &__container{
-        padding:2rem 0;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-start;
+        color: $base-f;
+        float: right;
     }
 
-    &__title h3{
-        color:$base-f;
-        font-family: $title-font;
-        font-size:1.4rem;
-        font-weight: 400;
-        margin-bottom: .7rem;
-    }
-    
+    .clarify-city {
 
-    &__btn{
-        margin: .5rem 0;
-        color:darken($base-f, 40);
-        font-family: $regular-font;
-        font-size:.9rem;
-        font-weight: 300;
-        background-color: $light-contrast;
-        width:80%;
-        display:flex;
-        flex-direction: column;
-        align-items:flex-start;
-        
-        span:last-child{
-            padding-top: .4rem;
+        // display: none;
+        // position: absolute;
+        // z-index: 1000;
+        // top: 0;
+        // left: 0;
+        // bottom: 0;
+        // right: 0;
+        // width: 80vw;
+        // height: 70vh;
+        // margin: auto;
+        // background: #fff;
+        // border-radius: 0.3rem;
+        // @include darkling-this;
+        // padding: 1rem;
+
+        &__container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 0;
+            position: absolute;
+            
+            z-index: 1000;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            width: 80vw;
+            height: 70vh;
+            margin: auto;
+            background: #fff;
+            border-radius: 0.3rem;
+            @include darkling-this;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 1rem 0;
+
+        }
+
+        &__title h3 {
+            color: darken($base-f, 40);
+            font-family: $title-font;
+            font-size: 1.4rem;
+            font-weight: 400;
+            margin-bottom: .7rem;
         }
 
 
-        &--top{
-            color:lighten($base-f, 80);
-            background-color: darken($dark-contrast, 5);
+        &__btn {
+            margin: .5rem 0;
+            color: darken($base-f, 40);
+            font-family: $regular-font;
+            font-size: 1.2rem;
+            font-weight: 300;
+            background-color: $light-contrast;
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+
+            span:last-child {
+                padding-top: .4rem;
+            }
+
+
+            &--top {
+                color: lighten($base-f, 80);
+                background-color: darken($dark-contrast, 5);
+            }
         }
+
     }
+
 }

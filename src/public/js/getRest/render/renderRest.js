@@ -10,8 +10,8 @@ import {
   buildTemplate,
 } from "../../Util/renderTemplate";
 
-const infoExploreContainer = initContainer("info-explore");
-const infoExploreChild = initChild("info-explore");
+const infoExploreContainer = initContainer("weather-explore");
+const infoExploreChild = initChild("weather-explore");
 
 const initInfoExploreTemplate = initTemplate(exploreInfoTemplate);
 

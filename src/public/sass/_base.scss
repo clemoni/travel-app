@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;500;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&display=swap');
-
-
-$linear-main:rgba(245, 126, 0, 0.9);
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap');
 $linear-main:rgba(245, 126, 0, 0.9);
 $main-color:#F77f00;
 $dark-contrast:#f8333c;
@@ -12,36 +9,47 @@ $linear-light:rgba(252, 191, 73, 0.5);
 $base-f:#e0dbdb;
 $base-0:#000;
 $full-dark-color:#003049;
-$linear-full-dark-color:rgba(0, 48, 73,0.3);
+$linear-full-dark-color:rgba(0, 48, 73, 0.3);
 
-$title-font:'Oswald', sans-serif;
-$regular-font:'Montserrat', sans-serif;
+$title-font:'Oswald',
+sans-serif;
+$regular-font:'Montserrat',
+sans-serif;
 
-:export {
-    primaryColor: $linear-main;
-}
+$shadow: 7px 15px 13px -3px rgba(0, 0, 0, 0.7);
 
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing: border-box;
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 
 html,
-body{
-    font-size: 1.1rem;
-    line-height: 1.2;
-    font-family: $regular-font;
+body {
+  font-size: 1.1rem;
+  line-height: 1.2;
+  font-family: $regular-font;
 }
 
-.btn{
-    border:none;
-    font-size: 1.2rem;
-    font-weight: 400;
-    padding:1rem .5rem;
-    width: 60%;
-    cursor: pointer;
-    border-radius: 0.3rem;
-  }
+.btn {
+  border: none;
+  font-size: 1.2rem;
+  font-weight: 400;
+  padding: 1rem .5rem;
+  width: 60%;
+  cursor: pointer;
+  border-radius: 0.3rem;
+}
+
+.btn:hover {
+  filter: brightness(85%);
+}
+
+@mixin darkling-this {
+  -webkit-box-shadow: $shadow;
+  box-shadow: $shadow
+}

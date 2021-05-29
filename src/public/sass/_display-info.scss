@@ -1,19 +1,19 @@
-.info{
-    background: $full-dark-color;
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    height: 100vh;
+// .info{
+//     background: $full-dark-color;
+//     display: grid;
+//     grid-template-columns: 1fr;
+//     grid-template-rows: 1fr 1fr;
+//     height: 100vh;
     
-}
-.info__title{
-    display:none;
-}
+// }
+// .info__title{
+//     display:none;
+// }
 
 .info-main{
     grid-column: 1/2;
     grid-row: 1/2;
-    background: linear-gradient($linear-full-dark-color, $linear-full-dark-color);
+    background: linear-gradient($linear-full-dark-color, $linear-full-dark-color), url(https://source.unsplash.com/w8hWTFpGtpY/1600x900/) no-repeat center/cover;
     color:#fff;
     text-shadow: 1px 1px $base-0;
     display:flex;

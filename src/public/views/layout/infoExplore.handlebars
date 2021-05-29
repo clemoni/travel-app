@@ -1,13 +1,23 @@
-<h3>Your trip to {{travelCity}} on the {{travelDate}}</h3>
 
-  <section class="info">
+<div class="weather-explore__title">
+<h3>
+  <span><b></b>Your trip </span> 
+  <span> to {{travelCity}}</span>
+</h3> 
+<h2>
+    <span>On the</span>
+    <span>{{travelDate}}</span>
+  </h2>
+
+</div>
+  <section class="weather">
       {{> weather}}
-    </section>
+  </section>
    
     <section class="explore">
       {{#if explore}}
       <div class="explore__title">
-        <h3>GET A TASTE</h3>
+        <h3>TASTE</h3>
       </div>
       <div class="explore__img-container">
       {{#each explore}}
@@ -15,6 +25,8 @@
       {{/each}}
       </div>
       {{else}}
-        <p>No Picture found for the chosen destination</p>
+      <div class="explore__img-container">
+        <p class="explore__img-container--no-show">No Picture found for the chosen destination</p>
+      </div>
       {{/if}}
     </section>

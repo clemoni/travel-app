@@ -19,5 +19,5 @@ export const getCity = (e) => {
   handleGetInfo()
     .then((values) => fetchCityData(values))
     .then((values) => fireClarifyTemplate(values))
-    .catch((error) => console.log(error.response.data.message));
+    .catch((error) => console.log(error));
 };

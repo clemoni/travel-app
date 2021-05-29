@@ -3,8 +3,6 @@ import axios from "axios";
 import { fireInfoExploreTemplate } from "./render/renderRest";
 import { getWeatherMainIcon } from "../UI/weatherMainlib";
 
-const btn = _tool._getElementID("test");
-
 const prepToRequest = (city) => {
   const lat = city.getAttribute("lat");
   const lng = city.getAttribute("lng");
@@ -18,9 +16,6 @@ const fetchRest = async (values) => {
   const res = await axios.get("http://localhost:8082/travel/getrest/", {
     params: values,
   });
-  // const res = await axios.get("/travel/getrest/", {
-  //   params: values,
-  // });
   return res;
 };
 
@@ -35,12 +30,7 @@ export const getRest = (e) => {
       fireInfoExploreTemplate(data);
       const icon = getWeatherMainIcon(mainIcon);
       const style = `linear-gradient(rgba(113, 107, 102, 0.2), rgba(113, 107, 102, 0.2)), url(https://source.unsplash.com/${icon}/1600x900) no-repeat center center/cover`;
-      _tool._getElementClass("info-main").style.background = style;
+      _tool._getElementClass("weather-main").style.background = style;
     })
     .catch((error) => console.log(error));
 };
-
-btn.addEventListener("click", (e) => {
-  e.preventDefault();
-  fireInfoExploreTemplate(test);
-});

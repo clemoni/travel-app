@@ -21,6 +21,7 @@ const callPixa = (name, countryName) => {
       key: "9122594-ee92bc002862ba16dc883919c",
       q: `${name}+${countryName}`,
       image_type: "photo",
+      orientation: "horizontal",
       per_page: "4",
       category: "travel",
     },

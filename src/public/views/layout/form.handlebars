@@ -1,6 +1,5 @@
-<aside class="get-info">
+<aside class="get-info" id="getInfo">
   <form class="form get-info__form">
-    <button id="test">Click</button>
     <div class="_message"></div>
     <div class="form__group get-info__city">
       <label for="travel-city" class="form__label">Where are you going ?</label>
@@ -10,11 +9,11 @@
         id="travel-city"
         name="travel-city"
         placeholder="Enter city here"
-        value="London"
+        {{! value="London" }}
         {{! need to be removed later }}
       />
     </div>
-    <div class="form__group get-info_date">
+    <div class="form__group get-info__date">
       <label for="travel-date" class="form__label">When are you leaving ?</label>
       <input
         type="date"
@@ -27,8 +26,6 @@
     <button class="btn form__submit get-info__submit" type="submit">
       Go
     </button>
-    <div class="clarify-city">
-    {{> clarify}}
-    </div>
+    <div class="clarify-city"></div>
   </form>
 </aside>

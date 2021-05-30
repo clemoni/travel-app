@@ -21,24 +21,25 @@
 
     &__social {
 
-        // width: 40%;
+        // width: 10%;
         .social__list {
+            width: 100%;
             display: flex;
             flex-direction: row;
             list-style: none;
-            justify-content: space-around;
+            justify-content: space-evenly;
             align-items: center;
 
             li {
 
                 a img {
-                    width: 35px;
+                    width: 25px;
                 }
 
-                .fa-github,
-                .fa-linkedin-in {
-                    color: $base-f;
+                a img:hover {
+                    transform: rotate(180deg)
                 }
+
 
             }
         }

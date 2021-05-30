@@ -9,14 +9,12 @@ const url = require("url");
  * @param {*} next
  */
 const isOneCity = (req, res, next) => {
-  ({ data } = res.locals);
-  console.log("is one?");
+  const { data } = res.locals;
 
   if (data.length === 1) {
     [{ lat, lng, name, countryName }] = data;
 
     res.locals.isOneCity = true;
-    console.log("just one");
 
     res.redirect(
       url.format({

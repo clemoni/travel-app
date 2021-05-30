@@ -4,8 +4,8 @@ import _tool from "fp-dom-tool";
 import "./sass/style.scss";
 
 // UI
-import { addUnsplashIcon } from "./js/UI/addUnplashIcon";
-addUnsplashIcon();
+import { fireIconsToList } from "./js/UI/addUnplashIcon";
+fireIconsToList();
 
 import { getCity } from "./js/getCity/getCity";
 
@@ -44,3 +44,18 @@ showCaseBtn.addEventListener("click", (e) => {
   const el = _tool._getElementID("getInfo");
   window.scrollTo(el.offsetLeft, el.offsetTop);
 });
+
+if (process.env.NODE_ENV === "production") {
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker
+        .register("/service-worker.js")
+        .then((registration) => {
+          console.log("SW registered: ", registration);
+        })
+        .catch((registrationError) => {
+          console.log("SW registration failed: ", registrationError);
+        });
+    });
+  }
+}

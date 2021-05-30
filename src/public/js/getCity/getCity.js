@@ -43,10 +43,10 @@ export const getCity = (e) => {
       // if error does not toJSON function then undefined then get just error
       // Two type of error, error from client in that case
       // error is just array or a string
-      // If error from server need to use the methot toJSON
+      // If error from server need to use the error.response
       // Use ?. if method not existing return undefined and
       // use error only
-      const message = error.toJSON?.().message || error;
+      const message = error.response?.data || error;
       // FireDangerSL can me use either for string or array
       // since message is converted to array
       // see fireDangerSL @../Util/alert

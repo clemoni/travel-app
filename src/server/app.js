@@ -31,7 +31,8 @@ app.use("/travel", travel);
 //middleware error handler
 app.use((err, req, res, next) => {
   ({ message } = err);
-  res.status(409).json({ message });
+  res.status(500).send(message);
+  // res.status(409).json({ message });
 });
 
 app.listen(PORT, (error) => {

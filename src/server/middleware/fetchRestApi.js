@@ -8,7 +8,7 @@ const { pickWeatherUrl } = require("../helpers/pickWeahterUrl");
  * @returns
  */
 const callWeather = (data, url) => {
-  const { lat, lng: lon } = data;
+  ({ lat, lng: lon } = data);
   return axios({
     method: "get",
     url,
@@ -26,7 +26,7 @@ const callWeather = (data, url) => {
  * @returns
  */
 const callPixa = (data) => {
-  const { name, countryName } = data;
+  ({ name, countryName } = data);
   return axios({
     method: "get",
     url: "https://pixabay.com/api/?",
@@ -65,7 +65,7 @@ const callRestApi = async (data, weatherUrl) => {
  * @param {*} next
  */
 const fetchRest = async (req, res, next) => {
-  const { data } = res.locals;
+  ({ data } = res.locals);
 
   const weatherUrl = pickWeatherUrl();
 

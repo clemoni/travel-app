@@ -11,10 +11,16 @@ import { getBaseUrl } from "../Util/getBaseUrl";
  * @returns {object}
  */
 const prepToRequest = (city) => {
-  const lat = city.getAttribute("lat");
-  const lng = city.getAttribute("lng");
-  const name = city.getAttribute("name");
-  const countryName = city.getAttribute("country-name");
+  const lat =
+    city.getAttribute("lat") || city.parentElement.getAttribute("lat");
+  const lng =
+    city.getAttribute("lng") || city.parentElement.getAttribute("lng");
+  const name =
+    city.getAttribute("name") || city.parentElement.getAttribute("name");
+  const countryName =
+    city.getAttribute("country-name") ||
+    city.parentElement.getAttribute("country-name");
+  console.log({ name, countryName, lat, lng });
   return { name, countryName, lat, lng };
 };
 
@@ -24,7 +30,6 @@ const prepToRequest = (city) => {
  * @returns {object} response
  */
 const fetchRest = async (values) => {
-  console.log("fire:: getRest");
   const url = getBaseUrl("/travel/getrest");
   const res = await axios.get(url, {
     params: values,
@@ -54,7 +59,7 @@ export const getRest = (e) => {
       // If error from server need to use the methot toJSON
       // Use ?. if method not existing return undefined and
       // use error only
-      const message = error.toJSON?.().message || error;
+      const message = error.response?.data || error;
 
       // FireDangerSL can me use either for string or array
       // since message is converted to array

@@ -4,7 +4,7 @@
   "description": "Captsone project of the Udacity Front End Web Developer Nanodegree Program",
   "main": "src/public/index.js",
   "scripts": {
-    "test": "jest --coverage",
+    "test": "jest",
     "start": "node src/server/app.js",
     "build": "webpack --stats-error-details",
     "sdev": "nodemon src/server/app.js",
@@ -53,6 +53,7 @@
     "@babel/runtime": "^7.14.0",
     "axios": "^0.21.1",
     "cors": "^2.8.5",
+    "dotenv-webpack": "^7.0.2",
     "express": "^4.17.1",
     "express-session": "^1.17.2",
     "handlebars": "^4.7.7",

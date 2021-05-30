@@ -7,7 +7,7 @@ const callWeather = (data, url) => {
     method: "get",
     url,
     params: {
-      key: "dd2a1b84794d47c3ac2504cfc31239ea",
+      key: process.env.API_WEATHER,
       lat,
       lon,
     },
@@ -20,7 +20,7 @@ const callPixa = (data) => {
     method: "get",
     url: "https://pixabay.com/api/?",
     params: {
-      key: "9122594-ee92bc002862ba16dc883919c",
+      key: process.env.API_PIXA,
       q: `${name}+${countryName}`,
       image_type: "photo",
       orientation: "horizontal",
@@ -41,7 +41,8 @@ const callRestApi = async (data, weatherUrl) => {
 const fetchRest = async (req, res, next) => {
   console.log("get rest call");
 
-  ({ data } = res.locals);
+  const { data } = res.locals;
+  // console.log(data);
   const weatherUrl = pickWeatherUrl();
 
   try {

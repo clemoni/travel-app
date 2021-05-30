@@ -24,7 +24,7 @@ router.post("/getcity", [
   sendCitiesClient,
 ]);
 
-router.get("/getrest/", [
+router.get("/getrest", [
   storeRestRequest,
   fetchRest,
   filterRestRes,

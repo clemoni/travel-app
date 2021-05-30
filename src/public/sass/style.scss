@@ -1,3 +1,5 @@
+@import 'fp-dom-alert/lib/index.css';
+
 @import 'base';
 
 @import 'form';
@@ -64,7 +66,14 @@
             right: 0;
             width: 20vw;
             height: 70vh;
-            margin: 5rem auto;
+            margin: 7rem auto;
+        }
+
+        ._message {
+            position: absolute;
+            width: 20vw;
+            top: -2rem;
+            top: -5rem;
         }
 
         .clarify-city {

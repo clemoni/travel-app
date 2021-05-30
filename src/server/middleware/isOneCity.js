@@ -12,7 +12,7 @@ const isOneCity = (req, res, next) => {
 
     res.redirect(
       url.format({
-        pathname: "/travel/getrest/",
+        pathname: "/travel/getrest",
         query: { name, countryName, lat, lng },
       })
     );

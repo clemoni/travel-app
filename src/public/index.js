@@ -32,5 +32,10 @@ showCaseBtn.addEventListener("click", (e) => {
   e.preventDefault();
   // console.log("hello");
   // location.hash = "#getIngo";
-  window.location.hash = "#getInfo";
+  // window.location.hash = "#getInfo";
+  const el = _tool._getElementID("getInfo");
+  window.scrollTo(el.offsetLeft, el.offsetTop);
 });
+
+const t_1 = new Date();
+const t_2 = new Date();

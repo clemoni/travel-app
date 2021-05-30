@@ -1,5 +1,6 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const Dotenv = require("dotenv-webpack");
 
 module.exports = {
   entry: "./src/public/index.js",
@@ -71,6 +72,7 @@ module.exports = {
       template: "./src/public/views/index.handlebars",
       title: "Travel App",
     }),
+    new Dotenv({ path: "./config/.env", systemvars: true }),
   ],
   output: {
     filename: "[name].bundle.js",

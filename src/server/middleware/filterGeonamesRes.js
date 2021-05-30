@@ -1,7 +1,8 @@
 const { filterGeoname } = require("../helpers/filterGeoname");
 
 const filterGeoRes = (req, res, next) => {
-  ({ data } = res.locals);
+  const { data } = res.locals;
+  console.log(data);
   res.locals.data = filterGeoname(data);
   next();
 };

@@ -44,22 +44,17 @@
         float: right;
     }
 
-    .clarify-city {
+    ._message {
+        position: absolute;
+        width: 80vw;
+        z-index: 2000;
+        top: 1rem;
+        left: 0;
+        right: 0;
+        margin: auto;
+    }
 
-        // display: none;
-        // position: absolute;
-        // z-index: 1000;
-        // top: 0;
-        // left: 0;
-        // bottom: 0;
-        // right: 0;
-        // width: 80vw;
-        // height: 70vh;
-        // margin: auto;
-        // background: #fff;
-        // border-radius: 0.3rem;
-        // @include darkling-this;
-        // padding: 1rem;
+    .clarify-city {
 
         &__container {
             display: flex;
@@ -68,7 +63,7 @@
             align-items: center;
             padding: 1rem 0;
             position: absolute;
-            
+
             z-index: 1000;
             top: 0;
             left: 0;

@@ -9,4 +9,5 @@ const weatherUrl = (diffDate) => {
 
 const pickWeatherUrl = compose(weatherUrl, diffFromNow);
 
+exports.weatherUrl = weatherUrl;
 exports.pickWeatherUrl = pickWeatherUrl;

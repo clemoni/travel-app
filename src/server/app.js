@@ -1,7 +1,10 @@
 const express = require("express");
 const path = require("path");
 const cors = require("cors");
-const session = require("express-session");
+
+require("dotenv").config({
+  path: path.resolve(__dirname, "../../config/.env"),
+});
 
 const travel = require("./routes/travel");
 

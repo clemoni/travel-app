@@ -8,7 +8,7 @@ const callGeonames = async (city) => {
       name: city,
       name_equals: city,
       maxRows: 3,
-      username: "clemoni",
+      username: process.env.API_GEO,
     },
   });
   return res;
@@ -17,8 +17,8 @@ const callGeonames = async (city) => {
 const fetchGeonames = async (req, res, next) => {
   try {
     const response = await callGeonames(res.locals.travelCity);
-    res.locals.data = response.data;
-
+    res.locals.data = await response.data;
+    console.log(res.locals.data);
     next();
   } catch (err) {
     next(err);

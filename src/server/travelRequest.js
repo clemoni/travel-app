@@ -1,3 +1,11 @@
+/**
+SafeTravelDate and SafeTravelCity are both used temporary store 
+the value travel-Date and travel-city between the requests
+/getcity and /getrest
+
+The object SafeTravelDate and SafeTravelCity are reset after request completion
+ */
+
 const SafeTravelDate = {
   set setDate(date) {
     this.travelDate = date;

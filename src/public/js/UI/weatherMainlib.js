@@ -27,4 +27,8 @@ const getIcon = (convertIcon) => {
   return weatherMainLib[convertIcon];
 };
 
+/**
+ * Convert Main Weather in order
+ * to retrieve corresponding image
+ */
 export const getWeatherMainIcon = compose(getIcon, convertIconMain);

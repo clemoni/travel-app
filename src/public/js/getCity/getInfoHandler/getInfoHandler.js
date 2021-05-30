@@ -11,7 +11,7 @@ import { compose } from "../../Util/utilities";
 export const getErrors = (inputValues) => {
   const output = { errors: [], values: [] };
 
-  // for oeach input
+  // for each input
   return Object.entries(inputValues).reduce((obj, entry) => {
     const [input, newValue] = entry; // get the input name (travel-date, travel-city) and value
     const inputSchema = getInfoSchema[input]; //retrieve test attach to input
@@ -25,7 +25,7 @@ export const getErrors = (inputValues) => {
 /**
  * Remove all the null test
  * @param {object} getErrors
- * @returns
+ * @returns {object}
  */
 export const filterError = (getErrors) => {
   const { errors: toFilterError, values } = getErrors;
@@ -38,7 +38,7 @@ export const filterError = (getErrors) => {
  * if Errors, reject and send list errors
  * else resolve send list values
  * @param {object} getErrors
- * @returns
+ * @returns {function} resolve(values) or reject(errors)
  */
 export const dispatchGetInfo = (getErrors) => {
   const { errors, values } = getErrors;
@@ -47,6 +47,12 @@ export const dispatchGetInfo = (getErrors) => {
   );
 };
 
+// Chaining
+// handleGetInfo(values) as starting point
+// see @dispatchGetInfo
+// see @filterError
+// see @getErrors
+// see @getGetInfoInputsValues
 export const handleGetInfo = compose(
   dispatchGetInfo,
   filterError,

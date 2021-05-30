@@ -5,7 +5,7 @@ const sendRestClient = (req, res) => {
 
   const travelDate = SafeTravelDate.getDate;
   const travelCity = SafeTravelCity.getCity;
-  console.log("send data");
+
   res.json({ explore, weather, travelCity, travelDate });
 
   res.end();

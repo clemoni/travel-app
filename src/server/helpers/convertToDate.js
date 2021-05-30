@@ -17,6 +17,14 @@ const convertToString = (timeFormat) => (timeStamp) => {
   });
 };
 
+/**
+ * return the Hours:Minutes
+ * from a timestamp
+ * with a given timezone
+ * @param {string} timeFormat
+ * @param {int} timestamp
+ * @returns
+ */
 const getTimeFromTimestamp = (timeFormat) => (timeStamp) => {
   const [, time] = convertToString(timeFormat)(timeStamp).split(",");
   const [h, m, s] = time.split(":");

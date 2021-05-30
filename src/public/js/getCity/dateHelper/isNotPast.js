@@ -8,4 +8,6 @@ export const isNotPast = (givenDate) => {
   return givenDate > Date.now();
 };
 
+// Chaingin
+// Check if chosen date is comming after current day
 export const dateIsNotPast = compose(isNotPast, convertStringToDate);

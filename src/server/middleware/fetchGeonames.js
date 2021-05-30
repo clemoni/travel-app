@@ -18,7 +18,6 @@ const fetchGeonames = async (req, res, next) => {
   try {
     const response = await callGeonames(res.locals.travelCity);
     res.locals.data = await response.data;
-    console.log(res.locals.data);
     next();
   } catch (err) {
     next(err);

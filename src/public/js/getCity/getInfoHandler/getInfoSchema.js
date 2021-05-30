@@ -1,5 +1,8 @@
 import * as validator from "./validator";
 
+/**
+ * Schema of the form with valid value and associated test
+ */
 export const getInfoSchema = {
   travelCity: {
     isNotEmpty: function (value) {
@@ -10,9 +13,6 @@ export const getInfoSchema = {
     isNotEmpty: function (value) {
       return validator.isNotEmptyValidator("Please provide a Date")(value);
     },
-    // isNotDate: function (value) {
-    //   return validator.isDateValidator("Date not in the right format")(value);
-    // },
     isNotDate: function (value) {
       return validator.ifNEmptyTestDateFormat("Date not in the right format")(
         value

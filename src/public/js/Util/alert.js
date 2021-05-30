@@ -7,17 +7,30 @@ const messageContainer = _tool._getElementClass("_message");
 const appendContainer = _tool._appendElement(messageContainer);
 const _switchAlertDisplay = _tool._switchElementDisplay(messageContainer);
 
+/**
+ * Build Alert to list of Errors
+ * Display element DOM _message
+ * @param {function} fireDanger or FireSuccess
+ * @param {Array} list of erros
+ * @returns
+ */
 const fireList = (fire) => (errors) => {
-  console.log(errors);
   errors.forEach((err) => {
     fire(err);
   });
   _switchAlertDisplay();
 };
 
+/**
+ * If error string convert to array
+ * If array already return value
+ * @param {string} string
+ * @returns {array}
+ */
 const convertToList = (string) => {
   return typeof string === "string" ? [string] : string;
 };
+
 /**
  * Create alert danger with message as param
  * Get the _message div from the DOM
@@ -29,8 +42,21 @@ export const fireDanger = (message) => {
   appendContainer(_alert._alertDanger(message));
 };
 
+/**
+ * Partial Currying of FireList
+ * Specifif to AlertDanger
+ * see @fireList
+ */
 const fireListDanger = fireList(fireDanger);
 
+/**
+ * Chaining
+ * Given error array or string
+ * convert to array
+ * Build alertDanger for each message error
+ * see @convertToList
+ * see @fireListDanger
+ */
 export const fireDangerSL = compose(fireListDanger, convertToList);
 
 /**
@@ -46,6 +72,14 @@ const fireSuccess = (message) => {
 
 const fireListSuccess = fireList(fireSuccess);
 
+/**
+ * Chaining
+ * Given error array or string
+ * convert to array
+ * Build alertSuccess for each message error
+ * see @convertToList
+ * see @fireListSuccess
+ */
 export const fireSuccessSL = compose(fireListSuccess, convertToList);
 
 /**

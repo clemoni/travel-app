@@ -13,8 +13,6 @@ require("colors");
 const app = express();
 const PORT = process.env.PORT || 8082;
 
-app.set("trust proxy", 1); // trust first proxy
-
 // Midleware
 app.use(express.static("dist"));
 
@@ -27,8 +25,10 @@ app.get("/", (req, res) => {
   path.join(__dirname, "../../dist/index.html");
 });
 
+// instanciation route /travel
 app.use("/travel", travel);
 
+//middleware error handler
 app.use((err, req, res, next) => {
   ({ message } = err);
   res.status(409).json({ message });

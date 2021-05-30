@@ -1,14 +1,14 @@
 import _tool from "fp-dom-tool";
 import unsplashIconImg from "../../img/unsplash.png";
 
-// const social__list = _tool._getElementClass("social__list");
-// const unplashLi = _tool._createElement("li");
-// const unplashA = _tool._createElement("a")(["href", "https://unsplash.com/"]);
-// const unplashI = _tool._createElement("img")(
-//   ["alt", "unsplash icon"],
-//   ["src", unsplashIconImg]
-// );
-
+/**
+ * Using the npm package fp-dom-tool
+ * @https://www.npmjs.com/package/fp-dom-tool
+ * Create list > a for footer icons
+ * @param {string} href
+ * @param {string} alt
+ * @param {string} src
+ */
 const createSocialListItem = (href, alt, src) => {
   const li = _tool._createElement("li")();
   const link = _tool._createElement("a")(["href", href], ["target", "_blank"]);

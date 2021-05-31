@@ -25,7 +25,6 @@ The User should answer two field in the the form: a city and a date. For both th
 
 The Date must be in date format 'yyyy-mm-dd' it should not previous to the current day (You can't travel to the past). If both this rule are not valid an error message would be printed.
 
-
 When fetching the city with the thrid-party API Geonames, we limit the response to 3 cities if any. Because we consider the first choice is not always obvious we decided to add a clarification for cities that are homonym to one to another.
 
 <img src="https://github.com/clemoni/travel-app/blob/main/src/public/img/clarify.jpg" alt="user clarification window" width="200" height="auto">
@@ -61,6 +60,65 @@ This project is using two npm package that I created:
 It is also using handlebars to render HTML.
 
 This project has been build wiht the functional-programming in mind.
+
+The code below is an example of one of its application:
+
+```javascript
+/**
+ * Build Alert to list of Errors
+ * Display element DOM _message
+ * @param {function} fireDanger or FireSuccess
+ * @param {Array} list of erros
+ * @returns
+ */
+const fireList = (fire) => (errors) => {
+  errors.forEach((err) => {
+    fire(err);
+  });
+  _switchAlertDisplay();
+};
+
+/**
+ * If error string convert to array
+ * If array already return value
+ * @param {string} string
+ * @returns {array}
+ */
+const convertToList = (potentialString) => {
+  return typeof potentialString === "string"
+    ? [potentialString]
+    : potentialString;
+};
+
+/**
+ * Create alert danger with message as param
+ * Get the _message div from the DOM
+ * append alert to dom
+ * display alert
+ * @param {string} message
+ */
+export const fireDanger = (message) => {
+  appendContainer(_alert._alertDanger(message));
+};
+
+/**
+ * Partial Currying of FireList
+ * Specifif to AlertDanger
+ * see @fireList
+ */
+const fireListDanger = fireList(fireDanger);
+
+/**
+ * Chaining
+ * fireDangerSL(errors)
+ * Given error array or string
+ * convert to array
+ * Build alertDanger for each message error
+ * see @convertToList
+ * see @fireListDanger
+ */
+export const fireDangerSL = compose(fireListDanger, convertToList);
+```
 
 ## Thanks
 

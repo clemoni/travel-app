@@ -26,7 +26,7 @@ The User should answer two field in the the form: a city and a date. For both th
 The Date must be in date format 'yyyy-mm-dd' it should not previous to the current day (You can't travel to the past). If both this rule are not valid an error message would be printed.
 
 
-<img src="https://github.com/clemoni/travel-app/blob/main/src/public/img/clarify.png" alt="user clarification window" width="500" height="100">
+<img src="https://github.com/clemoni/travel-app/blob/main/src/public/img/clarify.png" alt="user clarification window" width="500" height="300">
 
 
 When fetching the city with the thrid-party API Geonames, we limit the response to 3 cities if any. Because we consider the first choice is not always obvious we decided to add a clarification for cities that are homonym to one to another.

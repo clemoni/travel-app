@@ -25,9 +25,10 @@ The User should answer two field in the the form: a city and a date. For both th
 
 The Date must be in date format 'yyyy-mm-dd' it should not previous to the current day (You can't travel to the past). If both this rule are not valid an error message would be printed.
 
-<img src="https://github.com/clemoni/travel-app/blob/main/src/public/img/clarify.png" alt="user clarification window" width="200" height="auto">
 
 When fetching the city with the thrid-party API Geonames, we limit the response to 3 cities if any. Because we consider the first choice is not always obvious we decided to add a clarification for cities that are homonym to one to another.
+
+<img src="https://github.com/clemoni/travel-app/blob/main/src/public/img/clarify.jpg" alt="user clarification window" width="200" height="auto">
 
 Thus an user would have to clarify if he/she wants to go to Paris (France), Paris (United Stated), or París (Mexico).
 
@@ -38,11 +39,17 @@ For example, any user that would like to go "Llanfairpwllgwyngyllgogerychwyrndro
 
 An effort has bit put when displaying the weather, especialy with the main weather element.
 
-The main weather element displays either the unique day if it's the current day or the first day of the forecasdt.
+The main weather element displays either the unique day if it's the current day or the first day of the forecast.
 
 Is acting in the some way as header. Depending of the weather to this particular a background image would change to illustrate the weather description.
 
+<img src="https://github.com/clemoni/travel-app/blob/main/src/public/img/main-1.jpg"  width="200" height="auto">
+<img src="https://github.com/clemoni/travel-app/blob/main/src/public/img/main-2.jpg"  width="200" height="auto">
+<img src="https://github.com/clemoni/travel-app/blob/main/src/public/img/main-3.jpg" width="200" height="auto">
+
 Also when the forecast is displayed, the Day of the week is printed, with the day in format of the user and the icon associated with the weather.
+
+<img src="https://github.com/clemoni/travel-app/blob/main/src/public/img/forecast.jpg" width="200" height="auto">
 
 ## Additional Details
 

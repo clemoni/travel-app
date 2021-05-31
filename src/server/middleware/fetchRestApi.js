@@ -13,7 +13,7 @@ const callWeather = (data, url) => {
     method: "get",
     url,
     params: {
-      key: process.env.API_WEATHER,
+      key: "dd2a1b84794d47c3ac2504cfc31239ea",
       lat,
       lon,
     },
@@ -31,7 +31,7 @@ const callPixa = (data) => {
     method: "get",
     url: "https://pixabay.com/api/?",
     params: {
-      key: process.env.API_PIXA,
+      key: "9122594-ee92bc002862ba16dc883919c",
       q: `${name}+${countryName}`,
       image_type: "photo",
       orientation: "horizontal",

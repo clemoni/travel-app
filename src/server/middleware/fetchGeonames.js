@@ -8,7 +8,7 @@ const callGeonames = async (city) => {
       name: city,
       name_equals: city,
       maxRows: 3,
-      username: process.env.API_GEO,
+      username: "clemoni",
     },
   });
   return res;

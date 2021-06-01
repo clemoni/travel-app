@@ -59,7 +59,7 @@ This project is using two npm package that I created:
 
 It is also using handlebars to render HTML.
 
-This project has been build wiht the functional-programming in mind.
+This project has been built with functional-programming in mind.
 
 The code below is an example of one of its application:
 

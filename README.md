@@ -4,7 +4,7 @@
 
 ## Usage
 
-Enter a city and a date of leaving to plane your trip. Return the weather of teh destination and if any some pictures from the palce you wish to visit.
+Enter a city and a date of leaving to plane your trip. Return the weather of the destination and if any, some pictures from the place you wish to visit.
 
 ## How to run the project
 
@@ -15,15 +15,15 @@ the API_KEY:
 - API_WEATHER
 - API_PIXA
 
-2 - To run project in mode development: Start express server with `npm run start` and `npm run bdev`
+2 - To run the project in mode development: Start express server with `npm run start` and `npm run bdev`
 
 3 - To run the project in mode production: Start express server with `npm run start` and `npm run build`
 
 ## Roadmap
 
-The User should answer two field in the the form: a city and a date. For both the field a value is required and a error message is printed for each empty field.
+The User should answer two fields in the the form: a city and a date. For both field a value is required and a error message is fired when empty value is given.
 
-The Date must be in date format 'yyyy-mm-dd' it should not previous to the current day (You can't travel to the past). If both this rule are not valid an error message would be printed.
+The Date must be in date format 'yyyy-mm-dd' and it should not previous to the current day (You can't travel to the past). If both this rule are not valid an error message is fired.
 
 When fetching the city with the thrid-party API Geonames, we limit the response to 3 cities if any. Because we consider the first choice is not always obvious we decided to add a clarification for cities that are homonym to one to another.
 
